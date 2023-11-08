@@ -1,24 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import VisionGoal from "./components/VisionGoal";
+import ProfIncharge from "./components/ProfIncharge";
+import UpcomingEvent from "./components/UpcomingEvent";
+import PastEvent from "./components/PastEvent";
+import CoreMember from "./components/CoreMember";
+import TeamGallery from "./components/TeamGallery";
+import Contactus from "./components/Contactus";
+import Register from "./components/Register";
+import Footer from "./components/Footer";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <>
+      <Navbar />
+      <HeroSection />
+      <VisionGoal />
+      <ProfIncharge />
+      <Footer />
+    </>
+  },
+  {
+    path: '/events',
+    element: <>
+      <Navbar />
+      <UpcomingEvent />
+      <PastEvent />
+      <Footer />
+    </>
+  },
+  {
+    path: '/teams',
+    element: <>
+      <Navbar />
+      <CoreMember />
+      <TeamGallery />
+      <Footer />
+    </>
+  },
+  {
+    path: '/contactus',
+    element: <>
+      <Navbar />
+      <Contactus />
+      <Footer />
+    </>
+  },
+  {
+    path: '/register',
+    element: <>
+      <Navbar />
+      <Register />
+      <Footer />
+    </>
+  },
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
